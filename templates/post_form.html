@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Carga de Datos {% endblock %}
+{% block content%}
+<form action = "/uploader" method = "post" enctype="multipart/form-data">
+    <input type = "file" name = "file" />
+    <input type = "submit" value="Cargar"/>
+ </form>
+<hr class="separador">
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Edad</th>
+            <th>Sexo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in usuarios %}
+        <tr>
+            <td>{{u.nombre}}</td>
+            <td>{{u.apellido}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.edad}}</td>
+            <td>{{u.sexo}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+ 
+ {% endblock %}
